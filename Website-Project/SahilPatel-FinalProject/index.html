@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photographer Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="gallery.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo-wrapper">
+                <a class="logo" href="index.html"> <strong>SP</strong> Sahil Patel </a>
+            </div>
+
+            <ul class="navbar-links">
+                <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+        </div>
+        <i class="uil uil-apps nav-menu-btn"></i>
+    </nav>
+
+    <div class="header">
+        <div class="container">
+            <div class="box">
+                <p id="header_p">Hello there !</p>
+                <h1>I'm Sahil Patel</h1>
+                <p>
+                    Just a photography enthusiast based in Niagara Falls, capturing moments with my lens and playing with shades of black and white.
+                </p>
+                <a href="#" class="btn">Check out my work</a>
+                <a href="#" class="btn">Let's chat!</a>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- About section -->
+    <section class="about bg-light">
+        <div class="container">
+            <div class="box">
+                <h2 class="title">
+                    Hi, I'm Sahil Patel, an enthusiast capturing life's moments through my lens
+                </h2>
+                <p>
+                    As a photographer, I find joy in freezing the spontaneous, joyful, and genuine moments of life,
+                    aiming to narrate untold stories through my lens. Exploring the beauty of the world, I'm passionate about
+                    crafting visual tales that resonate with authenticity and emotion.
+                </p>
+            </div>
+            <div class="about-img">
+                <div class="img">
+                    <img src="./images/pexels-alexis-caso-2944191.jpg" alt="a person with camera">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About section -->
+
+
+    <!-- Services section -->
+    <section class="services bg-dark">
+        <div class="heading">
+            <h2 class="section-title"><span>My Services</span></h2>
+            <p class="section-title2">Explore a variety of services tailored just for you. We provide expert solutions to enhance your experience and meet your needs.</p>
+        </div>
+        <div class="container">
+
+            <div class="box border-01">
+                <div class="item">
+                    <img src="./images/icons/icon-1.svg" alt="">
+                    <a href="services-page.html">
+                        <h6>Photography</h6>
+                        <p>Photography bibendum eros amet vacun the vulputate in the vitae miss.</p>
+                    </a>
+                </div>
+            </div>
+            <div class="box border-02">
+                <div class="item">
+                    <img src="./images/icons/icon-2.svg" alt="">
+                    <a href="services-page.html">
+                        <h6>Videography</h6>
+                        <p>Discover the art of photography with our skilled team. Capturing moments with passion and precision, we bring out the essence in every shot.</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="box border-03">
+                <div class="item">
+                    <img src="./images/icons/icon-3.svg" alt="">
+
+                    <a href="services-page.html">
+                        <h6>Photo Retouching</h6>
+                        <p>Enhance your memories with our Photo Retouching service. We skillfully refine and beautify your photos, ensuring every detail is perfected.</p>
+                    </a>
+                </div>
+            </div>
+
+
+            <div class="box border-04">
+                <div class="item">
+                    <img src="./images/icons/icon-4.svg" alt="">
+                    <a href="services-page.html">
+                        <h6>Aerial Photography</h6>
+                        <p>Capture breathtaking views with our Aerial Photography service. We skillfully navigate the skies to bring you unique perspectives and unforgettable moments.</p>
+                    </a>
+                </div>
+            </div>
+
+
+            <div class="box border-05">
+                <div class="item">
+                    <img src="./images/icons/icon-5.svg" alt="">
+                    <a href="services-page.html">
+                        <h6>Lightning Setup</h6>
+                        <p>Create the perfect ambiance with our Lightning Setup service. We skillfully enhance the atmosphere, ensuring a captivating experience.</p>
+                    </a>
+                </div>
+            </div>
+            <div class="box border-06">
+                <div class="item">
+                    <img src="./images/icons/icon-6.svg" alt="">
+                    <a href="services-page.html">
+                        <h6>Video Color Grading</h6>
+                        <p>Elevate your videos with our Video Color Grading service. We bring out the best colors and tones to make your visuals truly stand out.</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Services section -->
+
+
+
+    <!-- Works Gallery -->
+    <section class="gallery bg-dark">
+        <div class="heading">
+            <h2 class="title">My Works</h2>
+        </div>
+        <div class="container">
+            <ul>
+                <li class="active"><a href="#" class="all-gallery-filter">All</a></li>
+                <li><a href="#" class="personal-gallery-filter">Personal</a></li>
+                <li><a href="#" class="wedding-gallery-filter">Wedding</a></li>
+                <li><a href="#" class="event-gallery-filter">Event</a></li>
+                <li><a href="#" class="fashion-gallery-filter">Fashion</a></li>
+                <li><a href="#" class="product-gallery-filter">Product</a></li>
+            </ul>
+        </div>
+        <div class="container">
+            <div class="grid-wrapper">
+                <div class="image tall">
+                    <img src="./images/album/pexels-photo-1055613.jpg" alt="A Lonely bench, dark street and single yellow light above" >
+                </div>
+                <div class="image wide">
+                    <img src="./images/album/pexels-photo-1738986.jpg" alt="A row of tall windows stretches across a dark, cavernous room, their reflections casting an eerie glow on the polished concrete floor" >
+                </div>
+                <div class="image tall">
+                    <img src="./images/album/pexels-photo-2970287.jpg" alt="Candlelight and flowers on the ground" >
+                </div>
+                <div class="image">
+                    <img src="./images/album/pexels-photo-1722206.jpg" alt="Sunlight streams through a heart-shaped arch, framing a turquoise ocean view." >
+                </div>
+                <div class="image ">
+                    <img src="./images/album/pexels-photo-3494648.jpg" alt="A man on road in snow" >
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--  Works Gallery -->
+
+    <!-- Contact section -->
+    <section class="contact bg-light">
+        <div class="container">
+
+            <div class="box">
+                <h2 class="title">
+                    Need help with photography? Let's work together!
+                </h2>
+                <ul>
+                    <li>
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        <span>+1 123-090-4040</span>
+                    </li>
+                    <li>
+                        <i class="fa fa-at" aria-hidden="true"></i>
+                        <span>successfull@sahilpatel.com</span>
+
+                    </li>
+                    <li>
+                        <i class="fa fa-location-pin" aria-hidden="true"></i>
+                        <span>XX xxxx St, Niagara Falls, L2H 3R5, Canada</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="box">
+                <div class="box-r">
+                    <div class="form-box">
+                        <div class="form-title">
+                            <h2>Get in touch</h2>
+                        </div>
+                        <form method="post">
+                            <div class="one-line">
+                                <div class="box-input">
+                                    <i class="far fa-user"></i>
+                                    <input type="text" class="text" placeholder="Full Name..">
+                                </div>
+                                <div class="box-input">
+                                    <i class="fa fa-phone"></i>
+                                    <input type="text" class="text" placeholder="your phone">
+                                </div>
+                            </div>
+
+                            <div class="box-input">
+                                <i class="fa fa-at"></i>
+                                <input type="email" class="text" placeholder="email..">
+                            </div>
+                            <div class="box-input">
+                                <label class="address"><i class="fa fa-location-pin"></i></label>
+                                <textarea cols="30" rows="5" placeholder="your address.."></textarea>
+                            </div>
+                            <button class="btn-send">Contact us</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact section -->
+
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="newsletter">
+            <div class="container">
+                <div class="box">
+                    <h2>Sign up to get latest update</h2>
+                    <p>Sign up for our monthly newsletter for the latest news &amp; articles</p>
+                </div>
+                <div class="form">
+                    <form>
+                        <input type="email" name="email" placeholder="Enter Email Address" required="">
+                        <button>Subscribe Now</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="second-footer">
+            <div class="container">
+                <div class="box">
+                    <div class="logo-wrapper">
+                        <a class="logo" href="index.html"> <strong>SP</strong> Sahil Patel </a>
+                    </div>
+                    <div class="text">
+                        <p>In photography, I capture moments and create unique, artistic visuals. My services focus on bringing out the best in every shot, ensuring a memorable and enjoyable experience for you. Let me turn ordinary scenes into extraordinary memories through my photography expertise.</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <h3 class="title">Quick Links</h3>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="works.html">Works</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div class="box">
+                    <h3 class="title">Contact</h3>
+                    <ul>
+                        <li>
+                            <i class="fa fa-phone"></i>
+                            <span>
+                                +1 123-456-7890
+                            </span>
+                        </li>
+                        <li>
+                            <i class="fa fa-at"></i>
+                            <span>
+                                info@sahilpatel.com
+                            </span>
+                        </li>F
+                        <li>
+                            <span>
+                                XX xxxx St, Niagara Falls, L2H 3R5, Canada
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class=" copyright">
+            <div class="box">
+                <p>Copyright © 2023 by <a href="#">SahilPatel</a>. All rights reserved.</p>
+            </div>
+            <div class="box">
+                <ul class="social-icons">
+                    <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                    <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
