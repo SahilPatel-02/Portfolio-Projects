@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrossFireNCR</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <script src="script-create.js"></script>
+</head>
+<body>
+    <header>
+        <div class="global-header">
+            <div class="logo">
+                <img src="img/Crossfire-Logo-no-bkgd.png" alt="CrossFire Logo">
+            </div>
+            <div class="global-selection">
+            
+                <div class="notifications">
+                    <a href="#" aria-label="Notifications"><i class='bx bx-bell'></i></a>
+                </div>
+                <div class="employee-info">
+                    <i class='bx bxs-user' aria-hidden="true"></i>
+                    <p>Employee Name</p>
+                </div>
+             
+            </div>
+        </div>
+
+        <nav>
+            <div class="navbar-pages">
+                <ul>
+                    <li ><a href="index copy.html">Home</a></li>
+                    <li><a href="ncr.html">NCR</a></li>
+                    <li class="active"><a href="create.html">Create</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="navbar-tools">
+                <ul>
+                    <li><i class='bx bx-refresh bx-sm' aria-hidden="true"></i><a href="ncr.html">Refresh</a></li>
+                   <li class="ddlRole">
+                    <input placeholder="Select Role" list="roles" name="role" id="roleInput" onchange="saveRole()">
+                        <datalist id="roles">
+                            <option value="Quality Rep">
+                            <option value="Engineer">
+                            <option value="Operations Manager">
+                            <option value="Inspector">
+                            <option value="Procurement">
+                            <option value="Administrator">
+                        </datalist>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+ 
+    <main class="create-main">
+        <h1>Create NCR</h1>
+        <p class="edit-p">&nbsp; Please fill out the NCR form below and submit it for processing. Required fields are marked with an asterisk (*).</p>
+
+        <div class="ncrSection">
+            <div class="ncrSection-title">
+                Quality Representative
+            </div>
+            <form class="ncrSection-form" id="ncr-form" onsubmit="return validateForm()">
+                <fieldset>
+                    
+                    <div class="form-ncrNum">
+                        <label for="ncrNumber">NCR #:</label>
+                        <span id="ncrNumber">NCR-</span>
+                    </div>
+                    <div class="form-ncrDate">
+                        <label for="ncrDate">NCR Date:</label>
+                        <span id="ncrDate"></span>
+                    </div><br>
+    
+                    <div class="lblIdf">
+                        <label>Identify Process Applicable:</label>
+                    </div>
+                    <div class="form-ipa1">
+                        <input type="radio" id="supp" name="process" value="suppotRec" onclick="enableDisableTextbox(this)">
+                        <label for="supp">Supplier or Receiving Inspection</label><br>
+                    </div>
+                    <div class="form-ipa2">
+                        <input type="radio" id="wip" name="process" value="supplier" onclick="enableDisableTextbox(this)">
+                        <label for="wip">WIP (Production Order)</label>
+                    </div><br>   
+    
+                    <div class="form-group">
+                        <label for="supplierName">Supplier Name: *</label>&nbsp;&nbsp;
+                        <input type="text" id="supplierName" class="size-css" required pattern="[a-zA-Z ]{2,30}" title="Please enter a valid name (letters only).">
+                    </div>
+    
+                    <div class="form-group">
+                        <div class="left-side">
+                            <label for="ProductNo">PO or Product No.: *</label>
+                            <input type="text" id="ProductNo" required pattern="\d{5}" title="Please enter exactly 5 digits.">
+                        </div>
+                        <div class="left-side">
+                            <label for="SaleOrderNo">Sales Order No.: *</label>&nbsp;&nbsp;&nbsp;
+                            <input type="text" id="SaleOrderNo" required pattern="\d{5}" title="Please enter exactly 5 digits.">
+                        </div>
+                    </div>
+    
+                    <div class="form-group">
+                        <div class="right-side">
+                            <label for="quantityReceived">Quantity Received: *</label>
+                            <input type="number" id="quantityReceived" required min="1" title="Please enter a valid quantity.">
+                        </div>
+                        <div class="right-side">
+                            <label for="quantityDefective">Quantity Defective: *</label>
+                            <input type="number" id="quantityDefective" required min="0" title="Please enter a valid quantity.">
+                        </div>
+                    </div>
+    
+                    <div class="form-ta-itemDes">
+                        <label for="itemDescription">Description of Item (including SAP No.): *</label><br>
+                        <textarea id="itemDescription" maxlength="3000" required></textarea>
+                    </div><br>
+                    
+                    <div class="form-ta-defDes">
+                        <label for="defectDescription">Description of Defect (should be descriptive): *</label><br>
+                        <textarea id="defectDescription" required></textarea>
+                    </div>
+                    
+                    <div class="lblImn">
+                        <label>Item marked Nonconforming:</label>
+                    </div>
+                    <div class="form-Yes">
+                        <input id="imnYes" name="nonconforming" type="radio" value="yes">
+                        <label for="imnYes">Yes</label>
+                    </div>
+                    <div class="form-No">
+                        <input id="imnNo" name="nonconforming" type="radio" value="no">
+                        <label for="imnNo">No</label>
+                    </div><br>                
+    
+                    <div class="btnContainer">
+                        <button type="save" class="btnSave">Save</button>
+                        <button type="submit" class="btnSubmit">Submit</button>
+                        <button type="button" class="btnCancel" onclick="goBack()">Cancel</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+
+        <div class="ncrSection">
+            <div class="ncrSection-title">Engineer</div>
+            <form class="ncrSection-form" id="ncr-form" onsubmit="return validateForm()">
+                <fieldset>
+                    
+                    <div class="form-ncrNum">
+                        <label for="ncrNumber">NCR #:</label>
+                        <span id="ncrNumber">NCR-</span>
+                    </div>
+                    <div class="form-ncrDate">
+                        <label for="ncrDate">NCR Date:</label>
+                        <span id="ncrDate"></span>
+                    </div><br>
+    
+                    <div class="lblIdf">
+                        <label>Review By Engineer:</label>
+                    </div>
+                    <div class="form-ipa1">
+                        <input type="radio" id="asIS" name="decsicion" value="asIS" >
+                        <label>Use As Is</label>
+                    </div><br>
+                    <div class="form-ipa2">
+                        <input type="radio" id="repair" name="decsicion" value="repair" >
+                        <label>Repair</label>
+                    </div><br>   
+                    <div class="form-ipa2">
+                        <input type="radio" id="reWork" name="decsicion" value="reWork" >
+                        <label>Rework</label>
+                    </div><br>   
+                    <div class="form-ipa2">
+                        <input type="radio" id="scrap" name="decsicion" value="scrap" >
+                        <label>Scrap</label>
+                    </div><br>   
+
+                    <div class="lblIdf">
+                        <label>Does Customer Require Notifications of NCR?:</label>
+                    </div>
+                    <div class="form-ipa2">
+                        <input type="radio" id="cusYes" name="cus" value="cusYes" >
+                        <label>Yes</label>
+                    </div><br>   
+                    <div class="form-ipa2">
+                        <input type="radio" id="cusNO" name="cus" value="cusNO" >
+                        <label >No</label>
+                    </div><br>   
+    
+
+                    
+                    <div class="form-ta-defDes">
+                        <label for="disposition">Disposition (Work steps required when "repair" or "rework" indicated): *</label><br>
+                        <textarea id="disposition" required></textarea>
+                    </div>
+                    
+                    <div class="lblImn">
+                        <label>Does the drawing require an update?</label>
+                    </div>
+                    <div class="form-Yes">
+                        <input id="imnYes" name="nonconforming" type="radio" value="yes">
+                        <label for="imnYes">Yes</label>
+                    </div>
+                    <div class="form-No">
+                        <input id="imnNo" name="nonconforming" type="radio" value="no">
+                        <label for="imnNo">No</label>
+                    </div><br>                
+    
+                    <div class="form-group">
+                        <label for="OgRev">Original Rev.Number *</label>&nbsp;&nbsp;
+                        <input type="text" id="OgRev" class="size-css" required pattern="[a-zA-Z ]{2,30}" title="Please enter exactly 5 digits.">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="OgEng">Name of the Engineer: *</label>&nbsp;&nbsp;
+                        <input type="text" id="OgEng" class="size-css" required  title="Please enter the name of the Original Engineer">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="newRev">Updated Revision Number *</label>&nbsp;&nbsp;
+                        <input type="text" id="newRev" class="size-css" required pattern="[a-zA-Z ]{2,30}" title="Please enter exactly 5 digits">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="newRev">Revision Date:</label>&nbsp;&nbsp;
+                        <input type="date" name="revDate" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="updaterEng">Engineer:*</label>&nbsp;&nbsp;
+                        <input type="text" id="updaterEng" class="size-css" title="Please Input your Name">
+                    </div>
+                   
+                    <div class="btnContainer">
+                        <button type="save" class="btnSave">Save</button>
+                        <button type="submit" class="btnSubmit">Submit</button>
+                        <button type="button" class="btnCancel" onclick="goBack()">Cancel</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>  
+       
+    </main>
+
+    <div id="successPopup" class="popup" style="display:none;">
+        <div class="popup-content">
+            <p>NCR created successfully!</p>
+            <p>What would you like to do next?</p>
+            <button onclick="createAnotherNCR()">Create Another NCR</button>
+            <button onclick="viewAllNCRs()">View All NCRs</button>
+            <button onclick="closePopup()">Close</button>
+        </div>
+    </div>
+
+    <footer class="ncr-footer">
+        <p>&copy; 2024 Crossfire. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script-view.js"></script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrossFireNCR</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <script src="script-ncr.js"></script>
+</head>
+<body>
+    <header>
+        <div class="global-header">
+            <div class="logo">
+                <img src="img/Crossfire-Logo-no-bkgd.png" alt="CrossFire Logo">
+            </div>
+            <div class="global-selection">
+                <div class="notifications">
+                    <input type="checkbox" id="notification-toggle" class="toggle-checkbox-notif"/>
+                    <label for="notification-toggle" class="bell"><i class='bx bx-bell bx-sm'></i></label>
+                    
+                    <div class="notification-box">
+                        <div class="notification-box-title">Notifications</div>
+                        <div class="notification-box-items">
+                            <ul>
+                                <li>Notification 1</li>
+                                <li>Notification 2</li>
+                                <li>Notification 3</li>
+                            </ul>
+                        </div>
+                   
+                    </div>
+                </div>
+                <div class="employee-info">
+                    <i class='bx bxs-user bx-sm'></i>
+                    <p id="user"> </p>
+                </div>
+                <div class="logDiv"> 
+                    <button class="button" id="logout" onclick="logout()">Logout</button>
+                </div>
+            </div>
+         
+            </div>
+        </div>
+
+        <nav>
+            <div class="navbar-pages">
+                <ul>
+                    <li ><a href="index copy.html">Home</a></li>
+                    <li><a href="ncr.html">NCR</a></li>
+                    <li><a href="create.html">Create</a></li>
+                    <li class="active"><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="navbar-tools">
+                <ul>
+                    <li><i class='bx bx-refresh bx-sm'></i><a href="ncr.html">Refresh</a></li>
+                    <li class="ddlRole">
+                        <input placeholder="Select Role" list="roles" name="role" id="roleInput" onchange="saveRole()">
+                        <datalist id="roles">
+                            <option value="Quality Rep">
+                            <option value="Engineer">
+                            <option value="Operations Manager">
+                            <option value="Inspector">
+                            <option value="Procurement ">
+                            <option value="Administrator">
+                        </datalist>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+<div class="faq-content">
+    <h1>FAQ</h1>
+ 
+        
+        <div class="faq-question">
+           
+          <div class="faq-subTitle">
+            <h2 id="ncr">NCR</h2>
+          <input id="q1" type="checkbox" class="panel">
+          <div class="plus">+</div>
+          <label for="q1" class="panel-title">How to Create a new NCR</label>
+          <div class="panel-content">You can do so by either clicking on the Create Navigation or by pressing create new NCR when you are viewing a NCR</div>
+          </div>
+        </div>
+        
+        <div class="faq-question">
+          <input id="q2" type="checkbox" class="panel">
+          <div class="plus">+</div>
+          <label for="q2" class="panel-title"> What happens after submission?</label>
+          <div class="panel-content">The NCR get sent to the assigned Management for them to review </div>
+        </div>
+        
+       
+        <div class="faq-question">
+            <input id="q4" type="checkbox" class="panel">
+            <div class="plus">+</div>
+            <label for="q4" class="panel-title">Want to Print a NCR Report?</label>
+            <div class="panel-content">Click on the "Print" button on the Navagation buttons </div>
+          </div>
+
+          <div class="faq-question">
+            <input id="q5" type="checkbox" class="panel">
+            <div class="plus">+</div>
+            <label for="q5" class="panel-title">What is the Description on the Engeering Section ?</label>
+            <div class="panel-content">Once a Engeering reviews an NCR, and they click on either "Rework" or "Repair", they must put the steps required for that NCR </div>
+          </div>
+
+          <div class="faq-subTitle">
+        <h2 id="contact">Contact</h2>
+        <div class="faq-question">
+          <input id="q3" type="checkbox" class="panel">
+          <div class="plus">+</div>
+          <label for="q3" class="panel-title">Need more help?</label>
+          <div class="panel-content">Contact the Management through @Management.ca or 900-999-9999</div>
+        </div>
+    </div>
+</div>
+</main>
+<footer class="ncr-footer">
+    <p>&copy; 2024 Crossfire. All Rights Reserved.</p>
+</footer>
+    </body>
+</html>

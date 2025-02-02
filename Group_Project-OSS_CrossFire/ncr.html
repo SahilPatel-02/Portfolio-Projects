@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrossFireNCR</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="script-ncr.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>  
+    <header>
+        <div class="global-header">
+            <div class="logo">
+                <img src="img/Crossfire-Logo-no-bkgd.png" alt="CrossFire Logo">
+            </div>
+            <div class="global-selection">
+                <div class="notifications">
+                    <input type="checkbox" id="notification-toggle" class="toggle-checkbox-notif"/>
+                   
+                    
+                    <div class="notification-box">
+                        <div class="notification-box-title">Notifications</div>
+                        <div class="notification-box-items">
+                            <ul>
+                                <li>Notification 1</li>
+                                <li>Notification 2</li>
+                                <li>Notification 3</li>
+                            </ul>
+                        </div>
+                   
+                    </div>
+                </div>
+                <div class="employee-info">  
+                    <i class='bx bxs-user bx-sm'></i>
+                    <p id="user"> </p>
+                </div>
+                <div class="logDiv"> 
+            
+                    <button class="button" id="logout" onclick="logout()">Logout</button>
+                </div>
+            </div>
+           
+              
+               
+            </div>
+        </div>
+
+        <nav>
+            <div class="navbar-pages">
+                <ul>
+                    <li ><a href="index copy.html">Home</a></li>
+                    <li class="active"><a href="ncr.html">NCR</a></li>
+                    <li><a href="create.html">Create</a></li>
+                    <li ><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="navbar-tools">
+                <ul>
+                    <li><i class='bx bx-refresh bx-sm'></i><a href="ncr.html">Refresh</a></li>
+                    <li><i class='bx bx-file bx-sm'></i><a href="create.html">Create NCR</a></li>                   
+                    <li class="ddlRole">
+                        <input placeholder="Select Role" list="roles" name="role" id="roleInput" onchange="saveRole()">
+                        <datalist id="roles">
+                            <option value="Quality Rep">
+                            <option value="Engineer">
+                            <option value="Operations Manager">
+                            <option value="Inspector">
+                            <option value="Procurement ">
+                            <option value="Administrator">
+                        </datalist>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main class="ncr-main">
+    <div class="filterbar">
+        <div class="filters">
+            <h1>Filter By:</h1>
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Department
+                </button>
+                <div class="dropdown-menu">
+                    <div class="dropdown-item">
+                        <input  type="checkbox" id="QualityRep" name="QualityRep"/>
+                        <label for="QualityRep">Quality Rep</label>
+                    </div>
+                    <div class="dropdown-item">
+                        <input  type="checkbox" id="Engineer" name="Engineer"/>
+                        <label for="Engineer">Engineer</label>
+                    </div>
+                    <div class="dropdown-item">
+                        <input  type="checkbox" id="Purchasing" name="Purchasing"/>
+                        <label for="Purchasing">Purchasing</label>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Supplier
+                </button>
+                
+                <div class="dropdown-menu">
+                    <div class="dropdown-item">
+                        <input  type="checkbox" id="ApexSupply" name="ApexSupply"/>
+                        <label for="ApexSupply">Apex Supply Co.</label>
+                    </div>
+                    <div class="dropdown-item">
+                        <input  type="checkbox" id="SilverStar" name="SilverStar"/>
+                        <label for="SilverStar">Silver Star Trading</label>
+                    </div>
+                    <div class="dropdown-item">
+                        <input  type="checkbox" id="QuantomRes" name="QuantomRes"/>
+                        <label for="QuantomRes">Quantom Resources</label>
+                    </div>
+                    
+                    <div class="dropdown-item">
+                        <input  type="checkbox" id="CrimsonLogistics" name="CrimsonLogistics"/>
+                        <label for="CrimsonLogistics">Crimson Logistics</label>
+                    </div>
+                  
+                    <div class="dropdown-item">
+                        <input  type="checkbox" id="HroizonGoods" name="HroizonGoods"/>
+                        <label for="HroizonGoods">Horizon Goods Inc.</label>
+                    </div>
+            
+                    <div class="dropdown-item">
+                        <input  type="checkbox" id="GlobalLink" name="GlobalLink"/>
+                        <label for="GlobalLink">Global Link</label>
+                    </div>
+                
+                  
+                </div>
+            </div>
+              
+        
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Status
+                </button>
+                <div class="dropdown-menu">
+                    <div class="dropdown-item">
+                        <input  type="checkbox" id="ActiveStatus" name="ActiveStatus"/>
+                        <label for="ActiveStatus">Active</label>
+                    </div>
+                    <div class="dropdown-item">
+                        <input  type="checkbox" id="CloseStatus" name="CloseStatus"/>
+                        <label for="CloseStatus">Closed</label>
+                    </div>
+                 
+                </div>
+              </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="column-1">
+        
+        <div class="row1-ncr" id="table-ncr">
+            <h2>All NCRs</h2>
+            <table class="table-content" id="tbl-ncr">
+                <thead>
+                    <tr>
+                        <th>NCR No.</th>
+                        <th>Status</th>
+                        <th>Supplier</th>
+                        <th>Product No.</th>
+                        <th>Product Name</th>
+                        <th>Created</th>
+                        <th>Modified</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="ncr-table-body">
+                    <tr>
+                        <td>1</td>
+                        <td>Active</td>
+                        <td>Apex Supply Co.</td>
+                        <td>01234</td>
+                        <td>Industrial Machinery Parts</td>
+                        <td>2022-03-13</td>
+                        <td>2024-11-05</td>
+                        <td><img src="img/search-file (1).png"><a href="" onclick="window.open('View-Edit_Page.html', 'SAMPLE',
+                            'left=280,top=270,width=1400,height=600,toolbar=1,resizable=0'); return false;">View</a> | <img src="img/edit.png"><a href="" onclick="window.open('View-Edit_Page.html', 'SAMPLE',
+                            'left=280,top=270,width=1400,height=600,toolbar=1,resizable=0'); return false;"> Edit</a></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Closed</td>
+                        <td>Green Valley Distributors</td>
+                        <td>12345</td>
+                        <td>Organic Produce</td>
+                        <td>2020-12-30</td>
+                        <td>2021-09-27</td>
+                        <td><img src="img/search-file (1).png"><a>View</a> | <img src="img/edit.png"><a> Edit</a></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Closed</td>
+                        <td>Green Valley Distributors</td>
+                        <td>23456</td>
+                        <td>Natural Cleaning Products</td>
+                        <td>2021-11-04</td>
+                        <td>2022-02-14</td>
+                        <td><img src="img/search-file (1).png"><a>View</a> |  <img src="img/edit.png"><a> Edit</a></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Active</td>
+                        <td>Quantum Resources</td>
+                        <td>34567</td>
+                        <td>Electronics Components</td>
+                        <td>2023-08-19</td>
+                        <td>2023-09-30</td>
+                        <td><img src="img/search-file (1).png"><a>View</a> | <img src="img/edit.png"><a> Edit</a></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Closed</td>
+                        <td>Blue Horizon Suppliers</td>
+                        <td>45678</td>
+                        <td>Marine Equipment</td>
+                        <td>2021-06-22</td>
+                        <td>2021-09-27</td>
+                        <td><img src="img/search-file (1).png"><a>View</a> | <img src="img/edit.png"><a> Edit</a></td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Closed</td>
+                        <td>Global Link Industries</td>
+                        <td>56789</td>
+                        <td>Automotive Parts</td>
+                        <td>2022-03-25</td>
+                        <td>2022-06-22</td>
+                        <td><img src="img/search-file (1).png"><a>View</a> | <img src="img/edit.png"><a> Edit</a></td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Active</td>
+                        <td>Silver Star Trading</td>
+                        <td>67890</td>
+                        <td>Fashion Accessories</td>
+                        <td>2023-01-10</td>
+                        <td>2023-03-15</td>
+                        <td><img src="img/search-file (1).png"><a>View</a> | <img src="img/edit.png"><a> Edit</a></td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Closed</td>
+                        <td>Evergreen Procurement Group</td>
+                        <td>78901</td>
+                        <td>Renewable Energy Solutions</td>
+                        <td>2021-05-20</td>
+                        <td>2021-10-05</td>
+                        <td><img src="img/search-file (1).png"><a>View</a> | <img src="img/edit.png"><a> Edit</a></td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Active</td>
+                        <td>Horizon Goods Inc.</td>
+                        <td>89012</td>
+                        <td>Home Appliances</td>
+                        <td>2023-02-25</td>
+                        <td>2023-07-12</td>
+                        <td><img src="img/search-file (1).png"><a>View</a> | <img src="img/edit.png"><a> Edit</a></td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Open</td>
+                        <td>Quantum Resources</td>
+                        <td>90123</td>
+                        <td>IT Networking Equipment</td>
+                        <td>2023-04-15</td>
+                        <td>2023-04-30</td>
+                        <td><img src="img/search-file (1).png"><a>View</a> | <img src="img/edit.png"><a> Edit</a></td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>Active</td>
+                        <td>Blue Horizon Suppliers</td>
+                        <td>01234</td>
+                        <td>Outdoor Adventure Gear</td>
+                        <td>2022-08-05</td>
+                        <td>2023-01-20</td>
+                        <td><img src="img/search-file (1).png"><a>View</a> | <img src="img/edit.png"><a> Edit</a></td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>Closed</td>
+                        <td>Green Valley Distributors</td>
+                        <td>12346</td>
+                        <td>Natural Cleaning Products</td>
+                        <td>2021-07-15</td>
+                        <td>2022-01-25</td>
+                        <td><img src="img/search-file (1).png"><a>View</a> | <img src="img/edit.png"><a> Edit</a></td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>Active</td>
+                        <td>Silver Tech Innovations</td>
+                        <td>23457</td>
+                        <td>Consumer Electronics</td>
+                        <td>2023-01-10</td>
+                        <td>2023-06-15</td>
+                        <td><img src="img/search-file (1).png"><a>View</a> | <img src="img/edit.png"><a> Edit</a></td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>Open</td>
+                        <td>Crimson Logistics</td>
+                        <td>34568</td>
+                        <td>Shipping and Freight</td>
+                        <td>2023-03-22</td>
+                        <td>2023-08-01</td>
+                        <td><img src="img/search-file (1).png"><a>View</a> | <img src="img/edit.png"><a> Edit</a></td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>Active</td>
+                        <td>Mountain Peak Industries</td>
+                        <td>45679</td>
+                        <td>Sports Equipment</td>
+                        <td>2022-09-15</td>
+                        <td>2023-05-30</td>
+                        <td><img src="img/search-file (1).png"><a>View</a> | <img src="img/edit.png"><a> Edit</a></td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td>Closed</td>
+                        <td>Sunrise Farms</td>
+                        <td>56780</td>
+                        <td>Organic Food Products</td>
+                        <td>2020-06-01</td>
+                        <td>2022-10-10</td>
+                        <td><img src="img/search-file (1).png"><a>View</a> | <img src="img/edit.png"><a> Edit</a></td>
+                    </tr>
+                    <tr>
+                        <td>17</td>
+                        <td>Active</td>
+                        <td>TechWave Solutions</td>
+                        <td>67891</td>
+                        <td>Software Development</td>
+                        <td>2023-05-01</td>
+                        <td>2023-11-15</td>
+                        <td><img src="img/search-file (1).png"><a>View</a> | <img src="img/edit.png"><a> Edit</a></td>
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                        <td>Open</td>
+                        <td>Ocean Blue Electronics</td>
+                        <td>78902</td>
+                        <td>Home Audio Systems</td>
+                        <td>2023-06-10</td>
+                        <td>2023-09-20</td>
+                        <td><img src="img/search-file (1).png"><a>View</a> | <img src="img/edit.png"><a> Edit</a></td>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td>Active</td>
+                        <td>Global Resources Ltd.</td>
+                        <td>89013</td>
+                        <td>Industrial Supplies</td>
+                        <td>2021-04-20</td>
+                        <td>2023-02-12</td>
+                        <td><img src="img/search-file (1).png"><a>View</a> | <img src="img/edit.png"><a> Edit</a></td>
+                    </tr>
+                    <tr>
+                        <td>20</td>
+                        <td>Closed</td>
+                        <td>Urban Style Fashion</td>
+                        <td>90124</td>
+                        <td>Clothing and Apparel</td>
+                        <td>2019-11-05</td>
+                        <td>2022-03-18</td>
+                        <td><img src="img/search-file (1).png"><a>View</a> | <img src="img/edit.png"><a> Edit</a></td>
+                    </tr> 
+                    <tr>
+                        <td>21</td>
+                        <td>Active</td>
+                        <td>Digital Ventures Inc.</td>
+                        <td>12345</td>
+                        <td>Online Marketing</td>
+                        <td>2023-01-15</td>
+                        <td>2023-08-20</td>
+                        <td><img src="img/search-file (1).png"><a>View</a> | <img src="img/edit.png"><a> Edit</a></td>
+                    </tr>
+                    <tr>
+                        <td>22</td>
+                        <td>Open</td>
+                        <td>Evergreen Enterprises</td>
+                        <td>23456</td>
+                        <td>Gardening Supplies</td>
+                        <td>2023-02-10</td>
+                        <td>2023-09-10</td>
+                        <td><a>View</a> | <a>Edit</a></td>
+                    </tr>
+                    <tr>
+                        <td>23</td>
+                        <td>Active</td>
+                        <td>Pinnacle Solutions</td>
+                        <td>34567</td>
+                        <td>Consulting Services</td>
+                        <td>2023-03-01</td>
+                        <td>2023-12-31</td>
+                        <td><a>View</a> | <a>Edit</a></td>
+                    </tr>
+                    <tr>
+                        <td>24</td>
+                        <td>Closed</td>
+                        <td>Radiant Health Products</td>
+                        <td>45678</td>
+                        <td>Health Supplements</td>
+                        <td>2021-05-22</td>
+                        <td>2022-05-01</td>
+                        <td><a>View</a> | <a>Edit</a></td>
+                    </tr>
+                    <tr>
+                        <td>25</td>
+                        <td>Active</td>
+                        <td>Quantum Innovations</td>
+                        <td>56789</td>
+                        <td>Renewable Energy</td>
+                        <td>2022-08-15</td>
+                        <td>2023-10-01</td>
+                        <td><a>View</a> | <a>Edit</a></td>
+                    </tr>
+                    <tr>
+                        <td>26</td>
+                        <td>Open</td>
+                        <td>Starlight Media</td>
+                        <td>67890</td>
+                        <td>Film Production</td>
+                        <td>2023-04-20</td>
+                        <td>2023-10-20</td>
+                        <td><a>View</a> | <a>Edit</a></td>
+                    </tr>
+                    <tr>
+                        <td>27</td>
+                        <td>Active</td>
+                        <td>Golden Grain Foods</td>
+                        <td>78901</td>
+                        <td>Food Manufacturing</td>
+                        <td>2023-01-30</td>
+                        <td>2023-11-15</td>
+                        <td><a>View</a> | <a>Edit</a></td>
+                    </tr>
+                    <tr>
+                        <td>28</td>
+                        <td>Closed</td>
+                        <td>Northwind Traders</td>
+                        <td>89012</td>
+                        <td>Import/Export</td>
+                        <td>2020-12-05</td>
+                        <td>2022-08-30</td>
+                        <td><a>View</a> | <a>Edit</a></td>
+                    </tr>
+                    <tr>
+                        <td>29</td>
+                        <td>Active</td>
+                        <td>Summit Technology</td>
+                        <td>90123</td>
+                        <td>IT Services</td>
+                        <td>2022-09-01</td>
+                        <td>2023-12-01</td>
+                        <td><a>View</a> | <a>Edit</a></td>
+                    </tr>
+                    <tr>
+                        <td>30</td>
+                        <td>Open</td>
+                        <td>Redwood Consulting</td>
+                        <td>01234</td>
+                        <td>Business Strategy</td>
+                        <td>2023-05-10</td>
+                        <td>2023-11-20</td>
+                        <td><a>View</a> | <a>Edit</a></td>
+                    </tr>
+                    <tr>
+                        <td>31</td>
+                        <td>Active</td>
+                        <td>Bright Future Tech</td>
+                        <td>12346</td>
+                        <td>Artificial Intelligence</td>
+                        <td>2023-06-15</td>
+                        <td>2024-01-30</td>
+                        <td><a>View</a> | <a>Edit</a></td>
+                    </tr>
+                    <tr>
+                        <td>32</td>
+                        <td>Closed</td>
+                        <td>Coastal Supplies Co.</td>
+                        <td>23457</td>
+                        <td>Marine Equipment</td>
+                        <td>2019-03-18</td>
+                        <td>2022-05-25</td>
+                        <td><a>View</a> | <a>Edit</a></td>
+                    </tr>
+                    <tr>
+                        <td>33</td>
+                        <td>Active</td>
+                        <td>Vertex Pharmaceuticals</td>
+                        <td>34568</td>
+                        <td>Pharmaceuticals</td>
+                        <td>2022-11-10</td>
+                        <td>2023-09-15</td>
+                        <td><a>View</a> | <a>Edit</a></td>
+                    </tr>
+                    <tr>
+                        <td>34</td>
+                        <td>Open</td>
+                        <td>Maple Leaf Apparel</td>
+                        <td>45679</td>
+                        <td>Fashion Design</td>
+                        <td>2023-03-15</td>
+                        <td>2023-10-30</td>
+                        <td><a>View</a> | <a>Edit</a></td>
+                    </tr>
+                    <tr>
+                        <td>35</td>
+                        <td>Active</td>
+                        <td>Peak Performance Gear</td>
+                        <td>56780</td>
+                        <td>Fitness Equipment</td>
+                        <td>2023-02-20</td>
+                        <td>2023-12-31</td>
+                        <td><a>View</a> | <a>Edit</a></td>
+                    </tr>
+                    <tr>
+                        <td>36</td>
+                        <td>Closed</td>
+                        <td>Zenith Construction</td>
+                        <td>67891</td>
+                        <td>Building Materials</td>
+                        <td>2020-07-15</td>
+                        <td>2022-04-12</td>
+                        <td><a>View</a> | <a>Edit</a></td>
+                    </tr>
+                    <tr>
+                        <td>37</td>
+                        <td>Active</td>
+                        <td>Infinity Travel Agency</td>
+                        <td>78902</td>
+                        <td>Travel Services</td>
+                        <td>2023-04-01</td>
+                        <td>2023-09-15</td>
+                        <td><a>View</a> | <a>Edit</a></td>
+                    </tr>
+                    <tr>
+                        <td>38</td>
+                        <td>Open</td>
+                        <td>Terra Firma Realty</td>
+                        <td>89013</td>
+                        <td>Real Estate</td>
+                        <td>2023-05-22</td>
+                        <td>2023-11-01</td>
+                        <td><a>View</a> | <a>Edit</a></td>
+                    </tr>
+                    <tr>
+                        <td>39</td>
+                        <td>Active</td>
+                        <td>Future Innovations LLC</td>
+                        <td>90124</td>
+                        <td>Tech Solutions</td>
+                        <td>2023-06-10</td>
+                        <td>2024-01-05</td>
+                        <td><a>View</a> | <a>Edit</a></td>
+                    </tr>
+                    <tr>
+                        <td>40</td>
+                        <td>Closed</td>
+                        <td>Epic Events Co.</td>
+                        <td>01235</td>
+                        <td>Event Management</td>
+                        <td>2021-02-14</td>
+                        <td>2022-11-30</td>
+                        <td><a>View</a> | <a>Edit</a></td>
+                    </tr>
+                
+                </tbody>
+            </table>
+        </div>
+    </div>        
+</main>
+
+<footer class="ncr-footer">
+    <p>&copy; 2024 Crossfire. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

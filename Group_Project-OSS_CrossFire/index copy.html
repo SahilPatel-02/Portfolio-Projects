@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrossFireNCR</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    
+</head>
+<body>
+    <header>
+        <div class="global-header">
+            <div class="logo">
+                <img src="img/Crossfire-Logo-no-bkgd.png" alt="CrossFire Logo">
+            </div>
+            <div class="global-selection">
+                <div class="notifications">
+                    <input type="checkbox" id="notification-toggle" class="toggle-checkbox-notif"/>
+                    <label for="notification-toggle" class="bell"><i class='bx bx-bell bx-sm'></i></label>
+                    
+                    <div class="notification-box">
+                        <div class="notification-box-title">Notifications</div>
+                        <div class="notification-box-items">
+                            <ul>
+                                <li>Notification 1</li>
+                                <li>Notification 2</li>
+                                <li>Notification 3</li>
+                            </ul>
+                        </div>
+                   
+                    </div>
+                </div>
+               
+                    <div class="employee-info">
+                        <i class='bx bxs-user bx-sm'></i>
+                        <p id="user"> </p>
+                    </div>
+                    <div class="logDiv"> 
+                        <button class="button" id="logout" onclick="logout()">Logout</button>
+                    </div>
+            </div>
+        </div>
+
+        <nav>
+            <div class="navbar-pages">
+                <ul>
+                    <li class="active"><a href="index copy.html">Home</a></li>
+                    <li><a href="ncr.html">NCR</a></li>
+                    <li><a href="create.html">Create</a></li>
+                     <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="navbar-tools">
+                <ul>
+                    <li><i class='bx bx-refresh bx-sm'></i><a href="ncr.html">Refresh</a></li>
+                    <!-- <li><i class='bx bx-printer bx-sm'></i><a href="#" onclick="printPage(); return false;">Print</a></li> -->                    
+                    <li class="ddlRole">
+                        <input placeholder="Select Role" list="roles" name="role" id="roleInput" onchange="saveRole()">
+                        <datalist id="roles">
+                            <option value="Quality Rep">
+                            <option value="Engineer">
+                            <option value="Operations Manager">
+                            <option value="Inspector">
+                            <option value="Procurement ">
+                            <option value="Administrator">
+                        </datalist>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="column">
+            <div class="home-ncr-notification">
+                <div class="home-ncr-notification-title">NCRs</div>
+    
+                <div class="home-ncr-box">
+                    <div class="home-all-ncr-section-select">
+                        <input type="radio" id="first" checked></input>
+                        <label for="third">New</label>
+                        <div class="home-indicator" id="New">2</div>
+                        <img class="expand-arrow" src="img/Expand-arrow.png">                
+                    </div>
+                    <div class="content">
+                   
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>NCR</th>
+                                    <th>Supplier</th>
+                                    <th>Product</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>NCR-6257</td>
+                                    <td>Apex Supply Co.</td>
+                                    <td>Industrial Machinery Parts</td>
+                                    <td><a href="" onclick="window.open('View-Edit_Page.html', 'SAMPLE',
+                                        'left=280,top=270,width=1400,height=600,toolbar=1,resizable=0'); return false;">View</a> | <a href="" onclick="window.open('View-Edit_Page.html', 'SAMPLE',
+                                        'left=280,top=270,width=1400,height=600,toolbar=1,resizable=0'); return false;">Edit</a></td>
+                                 </tr>
+                                <tr>
+                                    <td>NCR-3456</td>
+                                    <td>Horizon Goods Inc.</td>
+                                    <td>Home Appliances</td>
+                                    <td><a>View</a> | <a>Edit</a></td>
+                                 </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+    
+                <div class="home-ncr-box">
+                    <div class="home-all-ncr-section-select">
+                        <input type="radio" id="second" checked></input>
+                        <label for="third">Pending</label>
+                        <div class="home-indicator" id="Pending">5</div>
+                        <img class="expand-arrow" src="img/Expand-arrow.png">                
+                    </div>
+                    <div class="content">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>NCR</th>
+                                    <th>Supplier</th>
+                                    <th>Product</th>
+                                    <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>NCR-9012</td>
+                                        <td>Global Link Industries</td>
+                                        <td>Automotive Parts</td>
+                                        <td><a>View</a> | <a>Edit</a></td>
+                                     </tr>
+                                    <tr>
+                                        <td>NCR-0123</td>
+                                        <td>Green Valley Distributors</td>
+                                        <td>Organic Produce</td>
+                                        <td><a>View</a> | <a>Edit</a></td>
+                                     </tr>
+                                    <tr>
+                                        <td>NCR-1234</td>
+                                        <td>Green Valley Distributors</td>
+                                        <td>Natural Cleaning Products</td>
+                                        <td><a>View</a> | <a>Edit</a></td>
+                                      </tr>
+                                    <tr>
+                                        <td>NCR-2233</td>
+                                        <td>Quantum Resources</td>
+                                        <td>Electronics Components</td>
+                                        <td><a>View</a> | <a>Edit</a></td>
+                                      </tr>
+                                    <tr>
+                                        <td>NCR-3344</td>
+                                        <td>Blue Horizon Suppliers</td>
+                                        <td>Marine Equipment</td>
+                                        <td><a>View</a> | <a>Edit</a></td>
+                                     </tr> 
+                            </tbody>
+                        </table>     
+                    </div>
+                </div>
+    
+                <div class="home-ncr-box">
+                    <div class="home-all-ncr-section-select">
+                        <input type="radio" id="third" checked></input>
+                        <label for="third">Completed</label>
+                        <div class="home-indicator" id="Closed">3</div>
+                        <img class="expand-arrow" src="img/Expand-arrow.png">                
+                   </div>
+                    <div class="content">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>NCR</th>
+                                    <th>Supplier</th>
+                                    <th>Product</th>
+                                   <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>NCR-7812</td>
+                                        <td>Blue Horizon Suppliers</td> 
+                                        <td>Outdoor Adventure Gear</td>
+                                        <td><a>View</a> | <a>Edit</a></td>
+                                      </tr>
+                                    <tr>
+                                        <td>NCR-8923</td>
+                                        <td>Green Valley Distributors</td>
+                                        <td>Natural Cleaning Products</td>
+                                        <td><a>View</a> | <a>Edit</a></td>
+                                     </tr>
+                                    <tr>
+                                        <td>NCR-9234</td>
+                                        <td>Evergreen Procurement Group</td>
+                                        <td>Renewable Energy Solutions</td>
+                                        <td><a>View</a> | <a>Edit</a></td>
+                                    </tr>
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="home-other-ncr">
+                <div class="home-ncr-notification">
+            
+                        <h2 class="home-department-title">My Department</h2>
+                        <table class="content">
+                            <thead>
+                                <tr>
+                                    <th>Staff ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                             
+                                <tr>
+                                    <td>218901</td>
+                                    <td>Radin Boseman Jr.</td>
+                                    <td>RadinBBD@crossfire.com</td>
+                                    <td><a href="View-Edit_Page.html" onclick="window.open(this.href, 'SAMPLE', 'left=280,top=270,width=1400,height=600,toolbar=1,resizable=0'); return false;">View Records</a></td>
+                                </tr>
+                                <tr>
+                                    <td>990301</td>
+                                    <td>Alex Bond</td>
+                                    <td>abond@crossfire.com</td>
+                                    <td><a href="" onclick="window.open(this.href, 'SAMPLE', 'left=280,top=270,width=1400,height=600,toolbar=1,resizable=0'); return false;">View Records</a></td>
+                                </tr>
+                                <tr>
+                                    <td>678901</td>
+                                    <td>Linda Brown</td>
+                                    <td>lbrown@crossfire.com</td>
+                                    <td><a href="" onclick="window.open(this.href, 'SAMPLE', 'left=280,top=270,width=1400,height=600,toolbar=1,resizable=0'); return false;">View Records</a></td>
+                                </tr>
+                                <tr>
+                                    <td>890123</td>
+                                    <td>Olivia Davis</td>
+                                    <td>odavis@crossfire.com</td>
+                                    <td><a href="" onclick="window.open(this.href, 'SAMPLE', 'left=280,top=270,width=1400,height=600,toolbar=1,resizable=0'); return false;">View Records</a></td>
+                                </tr>
+                                <tr>
+                                    <td>567890</td>
+                                    <td>William Johnson</td>
+                                    <td>wjohnson@crossfire.com</td>
+                                    <td><a href="" onclick="window.open(this.href, 'SAMPLE', 'left=280,top=270,width=1400,height=600,toolbar=1,resizable=0'); return false;">View Records</a></td>
+                                </tr>
+                                <tr>
+                                    <td>678901</td>
+                                    <td>Linda Brown</td>
+                                    <td>lbrown@crossfire.com</td>
+                                    <td><a href="" onclick="window.open(this.href, 'SAMPLE', 'left=280,top=270,width=1400,height=600,toolbar=1,resizable=0'); return false;">View Records</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                </div>
+                <div class="home-other-ncr-chart">
+                    <div class="home-chart-title">Chart Analysis</div>
+                    <canvas class="ncrPiechart" id="NcrChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </main>
+  
+    
+    <footer>
+        <p>&copy; 2024 Crossfire. All Rights Reserved.</p>
+        
+    </footer>
+    
+</body>
+</html>

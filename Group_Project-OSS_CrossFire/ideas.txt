@@ -1,0 +1,3 @@
+home page layout intefrace needs to change if screen 800px is hit. 
+
+get rid of vertical scrollbar on tables. is done
